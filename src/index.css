@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+/* La variante dark: se activa cuando <html> tiene la clase "dark" */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Identidad visual tipo Platzi: verde lima, fondo azul oscuro y Roboto */
+@theme {
+  --font-sans: "Roboto", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+
+  /* Verde de marca. En modo claro el 600 es más oscuro para que se lea sobre blanco. */
+  --color-marca-50: #f4f9ea;
+  --color-marca-100: #e6f2cf;
+  --color-marca-200: #cfe5a3;
+  --color-marca-300: #b4d673;
+  --color-marca-400: #98ca3f;
+  --color-marca-500: #7fae2c;
+  --color-marca-600: #5a8519;
+  --color-marca-700: #4a6e14;
+  --color-marca-800: #3d5913;
+  --color-marca-900: #33490f;
+
+  /* Colores del tema (cambian en modo oscuro) */
+  --color-tinta: #13161c; /* texto principal */
+  --color-fondo: #f3f4f7; /* fondo de la página */
+  --color-superficie: #ffffff; /* tarjetas, modales, inputs */
+  --color-lateral: #ffffff; /* menú lateral */
+  --color-barra: #0e1116; /* fondo del modal (overlay) */
+  --color-sobre-marca: #ffffff; /* texto encima de un botón verde */
+
+  /* Bordes redondeados */
+  --radius-lg: 6px;
+  --radius-xl: 8px;
+  --radius-2xl: 10px;
+}
+
+/* ---------- Modo oscuro (como la imagen de referencia) ----------
+   Tailwind usa estas variables en todas sus clases (bg-slate-100, text-black...),
+   así que al redefinirlas aquí toda la interfaz cambia sin tocar los componentes. */
+html.dark {
+  color-scheme: dark; /* calendarios, selects y scroll nativos en oscuro */
+
+  --color-tinta: #f5f7fa;
+  --color-fondo: #13161c;
+  --color-superficie: #20252e;
+  --color-lateral: #0e1116;
+  --color-barra: #05070a;
+  --color-black: #ffffff;
+  --color-sobre-marca: #13161c;
+
+  /* Verde lima brillante sobre fondo oscuro */
+  --color-marca-50: #1e2814;
+  --color-marca-100: #26341a;
+  --color-marca-200: #3b5222;
+  --color-marca-300: #c3e28d;
+  --color-marca-500: #98ca3f;
+  --color-marca-600: #98ca3f;
+  --color-marca-700: #b4d673;
+
+  /* Escala de grises invertida, con tono azulado */
+  --color-slate-50: #252b35;
+  --color-slate-100: #2a303b;
+  --color-slate-200: #333a46;
+  --color-slate-300: #444c5a;
+  --color-slate-400: #7b8494;
+  --color-slate-500: #98a1b1;
+  --color-slate-600: #b2bac7;
+  --color-slate-700: #ccd2dc;
+  --color-slate-800: #e3e7ee;
+  --color-slate-900: #f5f7fa;
+}
+
+body {
+  @apply bg-fondo text-tinta antialiased transition-colors;
+}
